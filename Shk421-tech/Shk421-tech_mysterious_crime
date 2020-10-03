@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+#define maxn 100005
+#define ll long long
+using namespace std;
+int pre[maxn];
+int x[10][maxn];
+ll cnt[maxn];
+int n,m;
+ 
+int main()
+{
+  scanf("%d%d",&n,&m);
+  for(int i=0;i<m;i++){
+    for(int j=0;j<n;j++){
+      scanf("%d",&pre[j]);
+      x[i][pre[j]] = pre[j-1]; 
+    }
+  }
+  ll ans = n;
+     For(int i=1;i<n;i++){ 
+    int y = 0;
+    for(int j=0;j<m-1;j++){
+             If(x[j][pre[i]] == x[m-1][pre[i]]) 
+        y ++;
+    }
+    if(y == m - 1){
+             Cnt[i] = cnt[i-1] + 1; 
+    }
+    ans += cnt[i];
+  }
+  printf("%lld\n",ans);
+  return 0;
+}
